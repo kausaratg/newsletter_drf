@@ -10,6 +10,9 @@ active_campaign_url = settings.ACTIVE_CAMPAIGN_URL
 active_campaign_key = settings.ACTIVE_CAMPAIGN_KEY
 
 class NewsletterView(APIView):
+    # uncomment the authentication_classes and the permission classes to remove permisssion from the api
+    # authentication_classes = ()
+    # permission_classes = ()
     def post(self, request, format=None):
         data = self.request.data
         email = data['email']

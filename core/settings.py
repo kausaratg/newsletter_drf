@@ -37,9 +37,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party app
     'rest_framework',
-    'newsletter'
+    'rest_framework.authtoken',
+    # project app
+    'newsletter',
+    "authentication"
 ]
+
+REST_FRAMEWORK = {
+    #  this allows all api functions in the project needs permission before they can be  viewed
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': ( 
+        'rest_framework.permissions.IsAuthenticated', 
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
